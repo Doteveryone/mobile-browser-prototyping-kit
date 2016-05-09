@@ -8,7 +8,7 @@ The task of making quick mockups of apps in the browser should be easy. Most of 
 
 To add the kit to your project, copy the `prototyping-kit.js` into your project and reference if in your HTML file, like this:
 
-```
+```html
 <script src="path/to/prototyping-kit.js"></script>
 ```
 
@@ -24,7 +24,7 @@ In the `example` directory you will find an HTML file which showcases all of the
 
 To make a new screen, create a container and give it a `data-screen` attribute, like this:
 
-```
+```html
 <div data-screen="home">
   ...
 </div>
@@ -34,7 +34,7 @@ To make a new screen, create a container and give it a `data-screen` attribute, 
 
 To make a link which opens a specific screen you use a `data-open-screen` attribute:
 
-```
+```html
 <a href="#" data-open-screen="home">Home</a>
 ```
 
@@ -46,7 +46,7 @@ You can also open a scrren using the URL: append `#screen/home` to the filename 
 
 Closing links use the `data-close-screen` attribute:
 
-```
+```html
 <a href="#" data-close-screen>Close</a>
 ```
 
@@ -56,7 +56,7 @@ The attribute doesn’t need a name, it will close all the screens and show the 
 
 Navigation bar persists between screens. To designate a tag as the navigation bar you can use the `data-nav` attribute:
 
-```
+```html
 <nav data-nav>
   ...
 </nav>
@@ -64,7 +64,7 @@ Navigation bar persists between screens. To designate a tag as the navigation ba
 
 The links in the navigation bar are marked up like this:
 
-```
+```html
 <a href="#" data-nav-screen="home">Home</a>
 ```
 
@@ -76,7 +76,7 @@ Popups sit in the top layer, and are intended for asking questions.
 
 To make a popup, use the `data-popup` attribute:
 
-```
+```html
 <div data-popup="location">
   ...
 </div>
@@ -86,7 +86,7 @@ To make a popup, use the `data-popup` attribute:
 
 Using a button:
 
-```
+```html
 <a href="#" data-open-popup="location">Share location</a>
 ```
 
@@ -94,7 +94,7 @@ Using the URL: append `#popup/location` to the filename in the browser’s URL b
 
 #### Closing popups
 
-```
+```html
 <a href="#" data-close-popup>Close</a>
 ```
 
@@ -108,7 +108,7 @@ Bars sit at the top of the screen and are meant to provide some information.
 
 Any container will work as a bar, as long as it has the `data-bar` attribute:
 
-```
+```html
 <div data-bar="location">
   ...
 </div>
