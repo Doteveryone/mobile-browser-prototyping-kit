@@ -58,23 +58,27 @@ Closing links use the `data-close-screen` attribute:
 <a href="#" data-close-screen>Close</a>
 ```
 
-The attribute doesn’t need a name, it will close all the screens and show the home one.
+The attribute doesn’t need a name, it will close all the screens and show the home one. You can use other HTML element if you don’t want to use the `a` tag.
 
 ### Navigation
 
 Navigation bar persists between screens. To designate a tag as the navigation bar you can use the `data-nav` attribute:
 
 ```html
-<nav data-nav>
+<div data-nav>
   ...
-</nav>
+</div>
 ```
+
+Navigation doesn’t have to use the `div` tag, you can use whatever HTML tag you want.
 
 The links in the navigation bar are marked up like this:
 
 ```html
 <a href="#" data-nav-screen="home">Home</a>
 ```
+
+You can use other HTML element if you don’t want to use the `a` tag.
 
 ### Popups
 
@@ -98,7 +102,9 @@ Using a button:
 <a href="#" data-open-popup="location">Share location</a>
 ```
 
-Using the URL: append `#popup/location` to the filename in the browser’s URL bar.
+You can use other HTML element if you don’t want to use the `a` tag.
+
+You can append `#popup/location` to the filename in the browser’s URL bar to trigger a popup without having to click a button.
 
 #### Closing popups
 
