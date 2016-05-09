@@ -30,6 +30,8 @@ To make a new screen, create a container and give it a `data-screen` attribute, 
 </div>
 ```
 
+The content of the attribute (in this case `home`) is the name of this screen. You will have to use this name whenever you want to open this particular screen.
+
 #### Opening a screen
 
 To make a link which opens a specific screen you use a `data-open-screen` attribute:
@@ -38,9 +40,15 @@ To make a link which opens a specific screen you use a `data-open-screen` attrib
 <a href="#" data-open-screen="home">Home</a>
 ```
 
-If no screen with such name is found you will see a warning in the console, but no error will occur.
+This link will open the screen named `home`. If no screen with such name is found you will see a warning in the console, but no error will occur.
 
-You can also open a scrren using the URL: append `#screen/home` to the filename in the browser’s URL bar.
+You can use other HTML elements if you wish. For example, the list item below will open the screen called `settings`:
+
+```html
+<li data-open-screen="settings"><img src="img/settings.png" alt="Settings"></li>
+```
+
+You can also open a screen using the URL: append `#screen/home` to the filename in the browser’s URL bar.
 
 #### Closing a screen
 
