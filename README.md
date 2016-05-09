@@ -77,6 +77,12 @@ Closing links use the `data-close-screen` attribute:
 
 The attribute doesn’t need a name, it will close all the screens and show the home one. You can use other HTML element if you don’t want to use the `a` tag.
 
+#### Screen examples
+
+![Home screen](https://raw.githubusercontent.com/Doteveryone/mobile-browser-prototyping-kit/docs/screenshots/home.png)
+![Profile screen](https://raw.githubusercontent.com/Doteveryone/mobile-browser-prototyping-kit/docs/screenshots/profile.png)
+![Settings screen](https://raw.githubusercontent.com/Doteveryone/mobile-browser-prototyping-kit/docs/screenshots/settings.png)
+
 ### Navigation
 
 Navigation bar persists between screens. To designate a tag as the navigation bar you can use the `data-nav` attribute:
@@ -133,6 +139,11 @@ You can append `#popup/location` to the filename in the browser’s URL bar to t
 
 The attribute doesn’t need a name, it will close all popups. It will work with other HTML tags as well.
 
+#### Popup example
+
+![Location popup](https://raw.githubusercontent.com/Doteveryone/mobile-browser-prototyping-kit/docs/screenshots/popup.png)
+
+
 ### Bars
 
 Bars sit at the top of the screen and are meant to provide some information.
@@ -152,6 +163,11 @@ Any container will work as a bar, as long as it has the `data-bar` attribute. He
 Using the URL: append `#bar/location` to the filename in the browser’s URL bar.
 
 Bars dismiss themselves when tapped on.
+
+#### Bar example
+
+![Location bar](https://raw.githubusercontent.com/Doteveryone/mobile-browser-prototyping-kit/docs/screenshots/bar.png)
+
 
 ## Dependencies
 
