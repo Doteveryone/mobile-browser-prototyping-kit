@@ -79,11 +79,11 @@ The attribute doesn’t need a name, it will close all the screens and show the 
 
 #### Screen examples
 
-<img src="https://raw.githubusercontent.com/Doteveryone/mobile-browser-prototyping-kit/docs/screenshots/home.png" alt="Home screen" style="max-width:200px;border:1px solid black;">
+<img src="https://raw.githubusercontent.com/Doteveryone/mobile-browser-prototyping-kit/docs/screenshots/home.png" alt="Home screen" width="150">
 
-<img src="https://raw.githubusercontent.com/Doteveryone/mobile-browser-prototyping-kit/docs/screenshots/profile.png" alt="Profile screen" style="max-width:200px;border:1px solid black;">
+<img src="https://raw.githubusercontent.com/Doteveryone/mobile-browser-prototyping-kit/docs/screenshots/profile.png" alt="Profile screen" width="150"">
 
-<img src="https://raw.githubusercontent.com/Doteveryone/mobile-browser-prototyping-kit/docs/screenshots/settings.png" alt="Settings screen" style="max-width:200px;border:1px solid black;">
+<img src="https://raw.githubusercontent.com/Doteveryone/mobile-browser-prototyping-kit/docs/screenshots/settings.png" alt="Settings screen" width="150">
 
 ### Navigation
 
