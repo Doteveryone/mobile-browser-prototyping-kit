@@ -52,6 +52,22 @@ Closing links use the `data-close-screen` attribute:
 
 The attribute doesn’t need a name, it will close all the screens and show the home one.
 
+### Navigation
+
+Navigation bar persists between screens. To designate a tag as the navigation bar you can use the `data-nav` attribute:
+
+```
+<nav data-nav>
+  ...
+</nav>
+```
+
+The links in the navigation bar are marked up like this:
+
+```
+<a href="#" data-nav-screen="home">Home</a>
+```
+
 ### Popups
 
 #### Making popups
@@ -104,6 +120,6 @@ Using the URL: append `#bar/location` to the filename in the browser’s URL bar
 
 Bars dismiss themselves when tapped on.
 
-# Dependencies
+## Dependencies
 
 The prototype uses Backbone, which requires jQuery and Underscore. They’re already included in the JS file.
