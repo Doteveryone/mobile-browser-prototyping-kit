@@ -17,7 +17,7 @@ In the head of the document add the CSS file:
 ```html
 <head>
  ...
- <link href="path/to/prototyping-kit.css rel="stylesheet">
+ <link href="path/to/prototyping-kit.css" rel="stylesheet">
 </head>
 ```
 
