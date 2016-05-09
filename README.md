@@ -143,7 +143,7 @@ The attribute doesn’t need a name, it will close all popups. It will work with
 
 #### Popup example
 
-![Location popup](https://raw.githubusercontent.com/Doteveryone/mobile-browser-prototyping-kit/docs/screenshots/popup.png)
+<img src="https://raw.githubusercontent.com/Doteveryone/mobile-browser-prototyping-kit/docs/screenshots/popup.png" alt="Location popup" width="200" border="1">
 
 
 ### Bars
@@ -168,8 +168,7 @@ Bars dismiss themselves when tapped on.
 
 #### Bar example
 
-![Location bar](https://raw.githubusercontent.com/Doteveryone/mobile-browser-prototyping-kit/docs/screenshots/bar.png)
-
+<img src="https://raw.githubusercontent.com/Doteveryone/mobile-browser-prototyping-kit/docs/screenshots/bar.png" alt="Location bar" width="200" border="1">
 
 ## Dependencies
 
