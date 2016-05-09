@@ -30,7 +30,7 @@ To make a new screen, create a container and give it a `data-screen` attribute, 
 </div>
 ```
 
-The content of the attribute (in this case `home`) is the name of this screen. You will have to use this name whenever you want to open this particular screen.
+The content of the attribute (in this case `home`) is the name of this screen. You will have to use this name whenever you want to open this particular screen. You can use any HTML tag you want, not just `div`.
 
 #### Opening a screen
 
@@ -94,6 +94,8 @@ To make a popup, use the `data-popup` attribute:
 </div>
 ```
 
+You can use any HTML element you like.
+
 #### Opening popups
 
 Using a button:
@@ -112,7 +114,7 @@ You can append `#popup/location` to the filename in the browser’s URL bar to t
 <a href="#" data-close-popup>Close</a>
 ```
 
-The attribute doesn’t need a name, it will close all popups.
+The attribute doesn’t need a name, it will close all popups. It will work with other HTML tags as well.
 
 ### Bars
 
@@ -120,7 +122,7 @@ Bars sit at the top of the screen and are meant to provide some information.
 
 #### Making bars
 
-Any container will work as a bar, as long as it has the `data-bar` attribute:
+Any container will work as a bar, as long as it has the `data-bar` attribute. Here is an example using a `div` tag:
 
 ```html
 <div data-bar="location">
