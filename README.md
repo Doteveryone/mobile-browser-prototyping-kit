@@ -12,7 +12,20 @@ To add the kit to your project, copy the `prototyping-kit.js` into your project 
 <script src="path/to/prototyping-kit.js"></script>
 ```
 
+In the head of the document add the CSS file:
+
+```html
+<head>
+ ...
+ <link href="path/to/prototyping-kit.css rel="stylesheet">
+</head>
+```
+
 That’s it! See below for instructions on adding markup for creating screens, buttons for moving between them and other features.
+
+## Fonts and icons
+
+The font used in the example comes from Google Fonts, and it uses [Font Awesome](http://fontawesome.io/) to show icons. If you want a quick way of prototyping icons, Font Awesome is really handy.
 
 ## How to use
 
@@ -32,7 +45,7 @@ To make a new screen, create a container and give it a `data-screen` attribute, 
 
 The content of the attribute (in this case `home`) is the name of this screen. You will have to use this name whenever you want to open this particular screen. You can use any HTML tag you want, not just `div`.
 
-##### Home screen
+#### Home screen
 
 `home` is a special type of screen. When you open the app it starts by showing the `home` screen by default, and it will always go back to it when you close any other screen. Make sure that you have one screen called `home`, and that it’s actually your app’s home screen.
 
