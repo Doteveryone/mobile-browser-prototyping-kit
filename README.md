@@ -32,6 +32,10 @@ To make a new screen, create a container and give it a `data-screen` attribute, 
 
 The content of the attribute (in this case `home`) is the name of this screen. You will have to use this name whenever you want to open this particular screen. You can use any HTML tag you want, not just `div`.
 
+##### Home screen
+
+`home` is a special type of screen. When you open the app it starts by showing the `home` screen by default, and it will always go back to it when you close any other screen. Make sure that you have one screen called `home`, and that it’s actually your app’s home screen.
+
 #### Opening a screen
 
 To make a link which opens a specific screen you use a `data-open-screen` attribute:
