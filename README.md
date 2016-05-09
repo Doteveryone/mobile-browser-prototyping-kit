@@ -2,7 +2,7 @@
 
 ## Why we made it
 
-The task of making quick mockups of what apps could look like in the browser should be easy. Most of the time the interactive behaviour involves hiding and showing screens on tap. We wanted it to be possible to create new screens in HTML, without having to write new JavaScript to power them. That way people who can write HTML can make mockups as quickly as a developer can.
+The task of making quick mockups of apps in the browser should be easy. Most of the time the interactive behaviour involves hiding and showing screens when the person taps something. We wanted it to be possible to create new screens in HTML, without having to write new JavaScript to power them. That way people who can write HTML can make mockups as quickly as a developer can.
 
 ## Installation
 
