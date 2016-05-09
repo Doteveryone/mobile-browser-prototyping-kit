@@ -1,0 +1,9 @@
+{
+  "name": "prototyping-kit",
+  "version": "1.0.0",
+  "description": "Mobile browser prototyping kit",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0"
+  }
+}

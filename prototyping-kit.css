@@ -23,9 +23,11 @@ p, blockquote, pre, small, strike, strong, sub, sup, tt, var, b, u, i, center, i
 }
 
 body {
-  font-family: 'Lato', Helvetica, Arial, sans-serif;
   font-size: 120%;
   line-height: 1.4;
+  width: 100vw;
+  height: 100wh;
+  overflow: hidden;
 }
 
 h1 {
@@ -53,12 +55,6 @@ p {
 
 .summary a {
   color: black;
-}
-
-#wrapper {
-  width: 100vw;
-  height: 100wh;
-  overflow: hidden;
 }
 
 [data-nav] {
@@ -254,3 +250,4 @@ input[type='radio']:checked + .form-control-radio:before {
 .cf {
     *zoom: 1;
 }
+
