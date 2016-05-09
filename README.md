@@ -79,11 +79,11 @@ The attribute doesn’t need a name, it will close all the screens and show the 
 
 #### Screen examples
 
-<img src="https://raw.githubusercontent.com/Doteveryone/mobile-browser-prototyping-kit/docs/screenshots/home.png" alt="Home screen" width="200" border="1">
+<img src="https://raw.githubusercontent.com/Doteveryone/mobile-browser-prototyping-kit/master/screenshots/home.png" alt="Home screen" width="200" border="1">
 
-<img src="https://raw.githubusercontent.com/Doteveryone/mobile-browser-prototyping-kit/docs/screenshots/profile.png" alt="Profile screen" width="200" border="1"> 
+<img src="https://raw.githubusercontent.com/Doteveryone/mobile-browser-prototyping-kit/master/screenshots/profile.png" alt="Profile screen" width="200" border="1"> 
 
-<img src="https://raw.githubusercontent.com/Doteveryone/mobile-browser-prototyping-kit/docs/screenshots/settings.png" alt="Settings screen" width="200" border="1">
+<img src="https://raw.githubusercontent.com/Doteveryone/mobile-browser-prototyping-kit/master/screenshots/settings.png" alt="Settings screen" width="200" border="1">
 
 ### Navigation
 
@@ -143,7 +143,7 @@ The attribute doesn’t need a name, it will close all popups. It will work with
 
 #### Popup example
 
-<img src="https://raw.githubusercontent.com/Doteveryone/mobile-browser-prototyping-kit/docs/screenshots/popup.png" alt="Location popup" width="200" border="1">
+<img src="https://raw.githubusercontent.com/Doteveryone/mobile-browser-prototyping-kit/master/screenshots/popup.png" alt="Location popup" width="200" border="1">
 
 
 ### Bars
@@ -168,7 +168,7 @@ Bars dismiss themselves when tapped on.
 
 #### Bar example
 
-<img src="https://raw.githubusercontent.com/Doteveryone/mobile-browser-prototyping-kit/docs/screenshots/bar.png" alt="Location bar" width="200" border="1">
+<img src="https://raw.githubusercontent.com/Doteveryone/mobile-browser-prototyping-kit/master/screenshots/bar.png" alt="Location bar" width="200" border="1">
 
 ## Dependencies
 
