@@ -187,27 +187,28 @@ var Router = Backbone.Router.extend({
 
   routes: {
     'screen/:screen': 'dynamicRoute',
-    'screen/:screen/popup/:popup': 'dynamicRoute',
-    'screen/:screen/bar/:bar': 'dynamicRoute',
+    'screen/:screen/popup/:popup': 'dynamicRoutePopup',
+    'screen/:screen/bar/:bar': 'dynamicRouteBar',
     '*default': 'defaultRoute'
   },
 
-  dynamicRoute: function(screen, popup, bar) {
+  dynamicRoute: function(screen) {
     this.app.open(screen);
+  },
 
-    if (popup) {
-      this.app.openPopup(popup);
-    }
+  dynamicRoutePopup: function(screen, popup) {
+    this.app.open(screen);
+    this.app.openPopup(popup);
+  },
 
-    if (bar) {
-      this.app.openBar(bar);
-    }
+  dynamicRouteBar: function(screen, bar) {
+    this.app.open(screen);
+    this.app.openBar(bar);
   },
 
   defaultRoute: function() {
     this.navigate('screen/home');
   }
-
 });
 
 var App = Backbone.Model.extend({
