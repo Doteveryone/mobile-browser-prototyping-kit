@@ -65,7 +65,7 @@ You can use other HTML elements if you wish. For example, the list item below wi
 <li data-open-screen="settings"><img src="img/settings.png" alt="Settings"></li>
 ```
 
-You can also open a screen using the URL: amend `/screen/home` in the URL to reflect which screen you want to be open.
+Whenever a screen is opened, the URL will update to show which screen is currently visible. Changing the URL will take you to a different screen. Amend `screen/name-of-the-screen` to move to a different one.
 
 #### Closing a screen
 
