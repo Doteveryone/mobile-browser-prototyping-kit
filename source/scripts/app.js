@@ -15,6 +15,8 @@ var App = Backbone.Model.extend({
         screenToHide.hide();
       });
 
+      this.set({ currentScreen: screenName });
+      this.updateURL();
       screen.show();
     } else {
       console.warn('No screen ' + screenName + ' found.')
@@ -60,6 +62,7 @@ var App = Backbone.Model.extend({
   showHomeScreen: function() {
     var homeScreen = this.findScreen('home');
     homeScreen.show();
+    this.updateURL();
   },
 
   findScreen: function(name) {
@@ -69,19 +72,35 @@ var App = Backbone.Model.extend({
   },
 
   openPopup: function(popup) {
+    this.closeBar();
     this.set({ popup: popup });
+    this.updateURL('popup/' + popup);
   },
 
   closePopup: function() {
     this.unset('popup');
+    this.updateURL();
   },
 
   openBar: function(bar) {
+    this.closePopup();
     this.set({ bar: bar });
+    this.updateURL('bar/' + bar);
   },
 
   closeBar: function() {
     this.unset('bar');
+    this.updateURL();
+  },
+
+  updateURL: function(path) {
+    var route = 'screen/' + this.get('currentScreen');
+
+    if (path) {
+      route = route + '/' + path;
+    }
+
+    Backbone.history.navigate(route);
   }
 });
 
