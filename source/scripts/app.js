@@ -69,6 +69,7 @@ var App = Backbone.Model.extend({
   },
 
   openPopup: function(popup) {
+    this.closeBar();
     this.set({ popup: popup });
   },
 
@@ -77,6 +78,7 @@ var App = Backbone.Model.extend({
   },
 
   openBar: function(bar) {
+    this.closePopup();
     this.set({ bar: bar });
   },
 

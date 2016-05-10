@@ -39,7 +39,9 @@ var PopupView = Backbone.View.extend({
 
   events: {
     'click [data-close-popup]': 'close',
-    'click [data-open-popup]': 'open'
+    'click [data-open-popup]': 'open',
+    'click [data-close-bar]': 'closeBar',
+    'click [data-open-bar]': 'openBar'
   },
 
   open: function(event) {
@@ -51,6 +53,17 @@ var PopupView = Backbone.View.extend({
   close: function(event) {
     event.preventDefault();
     this.model.closePopup();
+  },
+
+  openBar: function(event) {
+    event.preventDefault();
+    var barName = event.currentTarget.dataset.openBar;
+    this.model.openBar(barName)
+  },
+
+  closeBar: function(event) {
+    event.preventDefault();
+    this.model.closeBar();
   },
 
   render: function() {
@@ -271,6 +284,7 @@ var App = Backbone.Model.extend({
   },
 
   openPopup: function(popup) {
+    this.closeBar();
     this.set({ popup: popup });
   },
 
@@ -279,6 +293,7 @@ var App = Backbone.Model.extend({
   },
 
   openBar: function(bar) {
+    this.closePopup();
     this.set({ bar: bar });
   },
 
