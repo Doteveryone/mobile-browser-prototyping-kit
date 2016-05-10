@@ -11,12 +11,10 @@ var Router = Backbone.Router.extend({
   },
 
   bar: function(bar) {
-    this.app.closePopup();
     this.app.openBar(bar);
   },
 
   popup: function(popup) {
-    this.app.closeBar();
     this.app.openPopup(popup);
   },
 
