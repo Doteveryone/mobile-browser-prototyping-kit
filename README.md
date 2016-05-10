@@ -65,7 +65,7 @@ You can use other HTML elements if you wish. For example, the list item below wi
 <li data-open-screen="settings"><img src="img/settings.png" alt="Settings"></li>
 ```
 
-You can also open a screen using the URL: append `#screen/home` to the filename in the browser’s URL bar.
+You can also open a screen using the URL: amend `/screen/home` in the URL to reflect which screen you want to be open.
 
 #### Closing a screen
 
@@ -81,7 +81,7 @@ The attribute doesn’t need a name, it will close all the screens and show the 
 
 <img src="https://raw.githubusercontent.com/Doteveryone/mobile-browser-prototyping-kit/docs/screenshots/home.png" alt="Home screen" width="200" border="1">
 
-<img src="https://raw.githubusercontent.com/Doteveryone/mobile-browser-prototyping-kit/docs/screenshots/profile.png" alt="Profile screen" width="200" border="1"> 
+<img src="https://raw.githubusercontent.com/Doteveryone/mobile-browser-prototyping-kit/docs/screenshots/profile.png" alt="Profile screen" width="200" border="1">
 
 <img src="https://raw.githubusercontent.com/Doteveryone/mobile-browser-prototyping-kit/docs/screenshots/settings.png" alt="Settings screen" width="200" border="1">
 
@@ -131,7 +131,7 @@ Using a button:
 
 You can use other HTML element if you don’t want to use the `a` tag.
 
-You can append `#popup/location` to the filename in the browser’s URL bar to trigger a popup without having to click a button.
+You can append `/popup/location` to the URL to trigger a popup without having to click a button.
 
 #### Closing popups
 
@@ -162,7 +162,7 @@ Any container will work as a bar, as long as it has the `data-bar` attribute. He
 
 #### Opening bars
 
-Using the URL: append `#bar/location` to the filename in the browser’s URL bar.
+Using the URL: append `/bar/location` to the URL.
 
 Bars dismiss themselves when tapped on.
 
