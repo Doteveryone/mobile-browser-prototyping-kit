@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var watch = require('gulp-watch');
 var concat = require('gulp-concat');
 
 gulp.task('scripts', function() {
@@ -8,4 +9,8 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('./../example/assets/js/'));
 });
 
-gulp.task('default', ['scripts']);
+gulp.task('watch', function(){
+  gulp.watch('./scripts/*.js', ['scripts']);
+})
+
+gulp.task('default', ['scripts', 'watch']);

@@ -4,6 +4,7 @@
   "description": "Mobile browser prototyping kit",
   "dependencies": {
     "gulp": "^3.9.1",
-    "gulp-concat": "^2.6.0"
+    "gulp-concat": "^2.6.0",
+    "gulp-watch": "^4.3.5"
   }
 }
