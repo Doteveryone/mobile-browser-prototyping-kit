@@ -186,27 +186,26 @@ var Router = Backbone.Router.extend({
   },
 
   routes: {
-    'bar/:bar': 'bar',
-    'popup/:popup': 'popup',
-    'screen/:screen': 'screen',
+    'screen/:screen': 'dynamicRoute',
+    'screen/:screen/popup/:popup': 'dynamicRoute',
+    'screen/:screen/bar/:bar': 'dynamicRoute',
     '*default': 'defaultRoute'
   },
 
-  bar: function(bar) {
-    this.app.openBar(bar);
-  },
-
-  popup: function(popup) {
-    this.app.openPopup(popup);
-  },
-
-  screen: function(screen) {
+  dynamicRoute: function(screen, popup, bar) {
     this.app.open(screen);
+
+    if (popup) {
+      this.app.openPopup(popup);
+    }
+
+    if (bar) {
+      this.app.openBar(bar);
+    }
   },
 
   defaultRoute: function() {
-    this.app.closePopup();
-    this.app.closeBar();
+    this.navigate('screen/home');
   }
 
 });
@@ -228,6 +227,8 @@ var App = Backbone.Model.extend({
         screenToHide.hide();
       });
 
+      this.set({ currentScreen: screenName });
+      this.updateURL();
       screen.show();
     } else {
       console.warn('No screen ' + screenName + ' found.')
@@ -273,6 +274,7 @@ var App = Backbone.Model.extend({
   showHomeScreen: function() {
     var homeScreen = this.findScreen('home');
     homeScreen.show();
+    this.updateURL();
   },
 
   findScreen: function(name) {
@@ -284,19 +286,33 @@ var App = Backbone.Model.extend({
   openPopup: function(popup) {
     this.closeBar();
     this.set({ popup: popup });
+    this.updateURL('popup/' + popup);
   },
 
   closePopup: function() {
     this.unset('popup');
+    this.updateURL();
   },
 
   openBar: function(bar) {
     this.closePopup();
     this.set({ bar: bar });
+    this.updateURL('bar/' + bar);
   },
 
   closeBar: function() {
     this.unset('bar');
+    this.updateURL();
+  },
+
+  updateURL: function(path) {
+    var route = 'screen/' + this.get('currentScreen');
+
+    if (path) {
+      route = route + '/' + path;
+    }
+
+    Backbone.history.navigate(route);
   }
 });
 
