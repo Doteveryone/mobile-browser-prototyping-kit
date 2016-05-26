@@ -1,0 +1,257 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+/* Borrowed from http://meyerweb.com/eric/tools/css/reset/ */
+div, span, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+p, blockquote, pre, small, strike, strong, sub, sup, tt, var, b, u, i, center, input, textarea, table, caption, tbody, tfoot, thead, tr, th, td {
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+body {
+  font-size: 120%;
+  line-height: 1.4;
+  width: 100vw;
+  height: 100wh;
+  overflow: hidden;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+h2, h3, h4, h5, h6, p {
+  margin-bottom: 10px;
+}
+
+a, a:visited, a:hover {
+  color: #0072C6;
+  text-decoration: underline;
+}
+
+p {
+  line-height: 1.6;
+}
+
+.summary {
+  font-size: 140%;
+  line-height: 1.4;
+  font-weight: bold;
+}
+
+.summary a {
+  color: black;
+}
+
+[data-nav] {
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  height: 15wh;
+  padding: 20px;
+  overflow: hidden;
+}
+
+[data-nav] a {
+  width: 33%;
+  float: left;
+  text-align: center;
+}
+
+[data-nav] a:first-child {
+  text-align: left;
+}
+
+[data-nav] a:last-child {
+  text-align: right;
+}
+
+[data-screen] {
+  width:100vw;
+  height:85vh;
+  position:absolute;
+  top:15%;
+  left:0;
+  background:#FFF;
+  padding: 20px;
+  display: none;
+}
+
+[data-screen] li {
+  display: block;
+  border-bottom:#000 1px solid;
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
+
+[data-screen] h2 {
+  font-size: 150%;
+  font-weight: bold;
+}
+
+[data-screen] h3 {
+  font-size: 120%;
+  font-weight: bold;
+}
+
+[data-popup] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #0072C6;
+  color: white;
+  padding: 20px;
+  box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.2), 0 0 0 800px rgba(0, 0, 0, 0.1);
+  display: none;
+}
+
+[data-popup] p {
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+[data-bar] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  background: #0072C6;
+  color: white;
+  padding: 20px;
+  box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.2);
+  font-size: 18px;
+  display: none;
+}
+
+[data-bar] p {
+  margin-bottom: 0;
+  line-height: 1.4;
+}
+
+[data-accordion] {
+  display: none;
+}
+
+.grid li {
+  width: 50%;
+  float: left;
+  text-align: center;
+  border-bottom: none;
+  margin-bottom: 20px;
+}
+
+.grid a {
+  text-decoration: none;
+}
+
+.grid i {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.button-bar {
+  width: 100%;
+  background: #0072C6;
+  color: white;
+}
+
+.button-bar a {
+  color: white;
+  padding: 5px 10px;
+  display: inline-block;
+  width: 49%;
+  text-align: center;
+}
+
+.button-bar a:first-child {
+  border-right: 2px solid #002F87;
+}
+
+[data-popup] .button-bar {
+  background: white;
+  color: black;
+}
+
+[data-popup] .button-bar a {
+  color: black;
+}
+
+[data-popup] .button-bar a:first-child {
+  border-right: 2px solid #0072C6;
+}
+
+.right {
+  float: right;
+}
+
+input, textarea, select, button, .form-group {
+  outline: 3px solid silver;
+  padding: 4px;
+}
+
+input:focus, textarea:focus, select:focus, button:focus, .form-group:focus {
+  outline: 3px solid #0072C6;
+  outline-offset: 0;
+}
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button, input[type=submit] {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input[type=checkbox], input[type=radio] {
+  display: none;
+}
+
+input[type='checkbox']:checked + .form-control-checkbox:before {
+  content: "";
+  background: #fff url(assets/img/tick.png) no-repeat 1px 1px;
+  background-size: 91%;
+}
+
+input[type='radio']:checked + .form-control-radio:before {
+  content: "●";
+  line-height: 2rem;
+  font-size: 30px;
+  text-indent: 2px;
+}
+
+.form-hint {
+  display: block;
+  font-weight: normal;
+  color: #667078;
+}
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+.cf {
+    *zoom: 1;
+}
+

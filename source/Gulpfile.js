@@ -9,8 +9,16 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('./../example/assets/js/'));
 });
 
+gulp.task('styles', function() {
+  return gulp.src('./styles/style.css')
+    .pipe(rename('prototyping-kit.css'))
+    .pipe(gulp.dest('./../'))
+    .pipe(gulp.dest('./../example/assets/css/'));
+});
+
 gulp.task('watch', function(){
   gulp.watch('./scripts/*.js', ['scripts']);
+  gulp.watch('./styles/*.css', ['styles']);
 })
 
-gulp.task('default', ['scripts', 'watch']);
+gulp.task('default', ['scripts', 'styles', 'watch']);
