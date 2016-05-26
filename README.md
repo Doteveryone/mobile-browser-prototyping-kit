@@ -173,3 +173,16 @@ Bars dismiss themselves when tapped on.
 ## Dependencies
 
 The prototype uses Backbone, which requires jQuery and Underscore. They’re already included in the JS file.
+
+## How to add features
+
+If you’d like to add features, you can do that in the `.js` file.
+
+To edit features by working on separate `.js` files that get conctaenated together you will have to install Node.
+
+1. Clone this repository.
+2. Install Node.
+3. In the `source` directory run `npm install`. This will install packages required to continuously run the script which will concatenate the files into a single one.
+4. In the `source` directory run `gulp` to watch for file changes.
+5. Edit the JavaScript files in the `source` directory as you wish. With every change the files will be joined together, and copied into the root of the project as well as the `example` directory.
+6. Open the HTML file in the `example` directory to preview your changes.
