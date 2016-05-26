@@ -105,6 +105,30 @@ The links in the navigation bar are marked up like this:
 
 You can use other HTML element if you don’t want to use the `a` tag.
 
+### Accordions
+
+Accordions are useful for hiding extra content which you don’t want to display straight away.
+
+To mark a container as an accordion, use the `data-accordion` attribute:
+
+```
+<p data-accordion="address">
+  77 Trinity Crescent
+  <br>WHISTON
+  <br>NN7 9RZ
+</p>
+```
+
+To add a button which toggles the accordion being shown / hidden, add a `data-accordion-button` attribute:
+
+```
+<a href="#" data-accordion-button="address">Address</a>
+```
+
+This button will open the accordion with the same name (in this case “address”).
+
+Both button and the accordion itself can be marked up using any HTML tags you think are suitable.
+
 ### Popups
 
 #### Making popups
