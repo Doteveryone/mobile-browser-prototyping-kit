@@ -71,7 +71,8 @@ var AccordionButton = Backbone.View.extend({
     'click': 'toggle'
   },
 
-  toggle: function() {
+  toggle: function(event) {
+    event.preventDefault();
     this.model.toggle();
   }
 });
