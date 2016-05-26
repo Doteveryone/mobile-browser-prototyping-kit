@@ -5,6 +5,7 @@ var App = Backbone.Model.extend({
     this.setUpScreens();
     this.setUpPopups();
     this.setUpBars();
+    this.setUpAccordions();
     this.showHomeScreen();
   },
 
@@ -57,6 +58,16 @@ var App = Backbone.Model.extend({
     _.each(barEls, function(barEl) {
       var barView = new BarView({ el: barEl, model: this });
     }, this);
+  },
+
+  setUpAccordions: function() {
+    var accordionEls = $('[data-accordion]');
+    _.each(accordionEls, function(accordionEl) {
+      var buttonEl = $('[data-accordion-button=' + accordionEl.dataset.accordion + ']').first();
+      var accordion = new Accordion();
+      var accordionView = new AccordionView({ model: accordion, el: accordionEl });
+      var accordionButton = new AccordionButton({ model: accordion, el: buttonEl });
+    });
   },
 
   showHomeScreen: function() {

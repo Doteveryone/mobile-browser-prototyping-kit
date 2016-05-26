@@ -30,6 +30,52 @@ var NavigationView = Backbone.View.extend({
   }
 })
 
+var Accordion = Backbone.Model.extend({
+  initialize: function() {
+    this.close();
+  },
+
+  open: function() {
+    this.set({ open: true });
+  },
+
+  close: function() {
+    this.set({ open: false });
+  },
+
+  toggle: function() {
+    if (this.get('open')) {
+      this.close();
+    } else {
+      this.open();
+    }
+  }
+});
+
+var AccordionView = Backbone.View.extend({
+  initialize: function() {
+    this.listenTo(this.model, 'change', this.render);
+  },
+
+  render: function() {
+    if (this.model.get('open')) {
+      this.$el.show();
+    } else {
+      this.$el.hide();
+    }
+  }
+});
+
+var AccordionButton = Backbone.View.extend({
+  events: {
+    'click': 'toggle'
+  },
+
+  toggle: function() {
+    this.model.toggle();
+  }
+});
+
 var PopupView = Backbone.View.extend({
   initialize: function() {
     this.name = this.el.dataset.popup;
@@ -218,6 +264,7 @@ var App = Backbone.Model.extend({
     this.setUpScreens();
     this.setUpPopups();
     this.setUpBars();
+    this.setUpAccordions();
     this.showHomeScreen();
   },
 
@@ -270,6 +317,16 @@ var App = Backbone.Model.extend({
     _.each(barEls, function(barEl) {
       var barView = new BarView({ el: barEl, model: this });
     }, this);
+  },
+
+  setUpAccordions: function() {
+    var accordionEls = $('[data-accordion]');
+    _.each(accordionEls, function(accordionEl) {
+      var buttonEl = $('[data-accordion-button=' + accordionEl.dataset.accordion + ']').first();
+      var accordion = new Accordion();
+      var accordionView = new AccordionView({ model: accordion, el: accordionEl });
+      var accordionButton = new AccordionButton({ model: accordion, el: buttonEl });
+    });
   },
 
   showHomeScreen: function() {
