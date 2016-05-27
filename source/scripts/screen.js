@@ -21,6 +21,7 @@ var Screen = Backbone.Model.extend({
 var ScreenView = Backbone.View.extend({
   initialize: function() {
     this.listenTo(this.model, 'change', this.render);
+    this.listenTo(this.model.app, 'change:mode', this.respondToMode);
     this.render();
   },
 
@@ -64,6 +65,16 @@ var ScreenView = Backbone.View.extend({
   closeBar: function(event) {
     event.preventDefault();
     this.model.app.closeBar();
+  },
+
+  respondToMode: function() {
+    var mode = this.model.app.get('mode');
+    console.log(mode)
+    if (mode) {
+      this.$el.addClass('mode-' + mode);
+    } else {
+      this.el.className = this.el.className.replace(/\bmode-.+?\b/g, '');
+    }
   },
 
   render: function() {

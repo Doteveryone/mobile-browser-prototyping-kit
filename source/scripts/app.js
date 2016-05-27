@@ -5,6 +5,8 @@ var App = Backbone.Model.extend({
     this.setUpScreens();
     this.setUpPopups();
     this.setUpBars();
+    this.setUpAccordions();
+    this.setUpModeToggles();
     this.showHomeScreen();
   },
 
@@ -59,6 +61,23 @@ var App = Backbone.Model.extend({
     }, this);
   },
 
+  setUpAccordions: function() {
+    var accordionEls = $('[data-accordion]');
+    _.each(accordionEls, function(accordionEl) {
+      var buttonEl = $('[data-accordion-button=' + accordionEl.dataset.accordion + ']').first();
+      var accordion = new Accordion();
+      var accordionView = new AccordionView({ model: accordion, el: accordionEl });
+      var accordionButton = new AccordionButton({ model: accordion, el: buttonEl });
+    });
+  },
+
+  setUpModeToggles: function() {
+    var modeToggleEls = $('[data-mode-toggle]');
+    _.each(modeToggleEls, function(modeToggle) {
+      new ModeToggle({ el: modeToggle, model: this })
+    }, this);
+  },
+
   showHomeScreen: function() {
     var homeScreen = this.findScreen('home');
     homeScreen.show();
@@ -91,6 +110,15 @@ var App = Backbone.Model.extend({
   closeBar: function() {
     this.unset('bar');
     this.updateURL();
+  },
+
+  toggleMode: function(name) {
+    var currentMode = this.get('mode');
+    if (currentMode && currentMode === name) {
+      this.unset('mode');
+    } else {
+      this.set('mode', name);
+    }
   },
 
   updateURL: function(path) {

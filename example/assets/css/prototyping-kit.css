@@ -143,6 +143,10 @@ p {
   line-height: 1.4;
 }
 
+[data-accordion] {
+  display: none;
+}
+
 .grid li {
   width: 50%;
   float: left;

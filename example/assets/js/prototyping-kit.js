@@ -30,6 +30,53 @@ var NavigationView = Backbone.View.extend({
   }
 })
 
+var Accordion = Backbone.Model.extend({
+  initialize: function() {
+    this.close();
+  },
+
+  open: function() {
+    this.set({ open: true });
+  },
+
+  close: function() {
+    this.set({ open: false });
+  },
+
+  toggle: function() {
+    if (this.get('open')) {
+      this.close();
+    } else {
+      this.open();
+    }
+  }
+});
+
+var AccordionView = Backbone.View.extend({
+  initialize: function() {
+    this.listenTo(this.model, 'change', this.render);
+  },
+
+  render: function() {
+    if (this.model.get('open')) {
+      this.$el.show();
+    } else {
+      this.$el.hide();
+    }
+  }
+});
+
+var AccordionButton = Backbone.View.extend({
+  events: {
+    'click': 'toggle'
+  },
+
+  toggle: function(event) {
+    event.preventDefault();
+    this.model.toggle();
+  }
+});
+
 var PopupView = Backbone.View.extend({
   initialize: function() {
     this.name = this.el.dataset.popup;
@@ -74,6 +121,21 @@ var PopupView = Backbone.View.extend({
     }
   }
 
+});
+
+var ModeToggle = Backbone.View.extend({
+  initialize: function() {
+    this.name = this.el.dataset.modeToggle;
+  },
+
+  events: {
+    'click': 'toggle'
+  },
+
+  toggle: function(event) {
+    event.preventDefault();
+    this.model.toggleMode(this.name);
+  }
 });
 
 var BarView = Backbone.View.extend({
@@ -126,6 +188,7 @@ var Screen = Backbone.Model.extend({
 var ScreenView = Backbone.View.extend({
   initialize: function() {
     this.listenTo(this.model, 'change', this.render);
+    this.listenTo(this.model.app, 'change:mode', this.respondToMode);
     this.render();
   },
 
@@ -169,6 +232,16 @@ var ScreenView = Backbone.View.extend({
   closeBar: function(event) {
     event.preventDefault();
     this.model.app.closeBar();
+  },
+
+  respondToMode: function() {
+    var mode = this.model.app.get('mode');
+    console.log(mode)
+    if (mode) {
+      this.$el.addClass('mode-' + mode);
+    } else {
+      this.el.className = this.el.className.replace(/\bmode-.+?\b/g, '');
+    }
   },
 
   render: function() {
@@ -218,6 +291,8 @@ var App = Backbone.Model.extend({
     this.setUpScreens();
     this.setUpPopups();
     this.setUpBars();
+    this.setUpAccordions();
+    this.setUpModeToggles();
     this.showHomeScreen();
   },
 
@@ -272,6 +347,23 @@ var App = Backbone.Model.extend({
     }, this);
   },
 
+  setUpAccordions: function() {
+    var accordionEls = $('[data-accordion]');
+    _.each(accordionEls, function(accordionEl) {
+      var buttonEl = $('[data-accordion-button=' + accordionEl.dataset.accordion + ']').first();
+      var accordion = new Accordion();
+      var accordionView = new AccordionView({ model: accordion, el: accordionEl });
+      var accordionButton = new AccordionButton({ model: accordion, el: buttonEl });
+    });
+  },
+
+  setUpModeToggles: function() {
+    var modeToggleEls = $('[data-mode-toggle]');
+    _.each(modeToggleEls, function(modeToggle) {
+      new ModeToggle({ el: modeToggle, model: this })
+    }, this);
+  },
+
   showHomeScreen: function() {
     var homeScreen = this.findScreen('home');
     homeScreen.show();
@@ -304,6 +396,15 @@ var App = Backbone.Model.extend({
   closeBar: function() {
     this.unset('bar');
     this.updateURL();
+  },
+
+  toggleMode: function(name) {
+    var currentMode = this.get('mode');
+    if (currentMode && currentMode === name) {
+      this.unset('mode');
+    } else {
+      this.set('mode', name);
+    }
   },
 
   updateURL: function(path) {
