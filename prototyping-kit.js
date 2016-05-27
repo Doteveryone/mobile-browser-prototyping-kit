@@ -57,12 +57,21 @@ var AccordionView = Backbone.View.extend({
     this.listenTo(this.model, 'change', this.render);
   },
 
+  events: {
+    'click': 'toggle'
+  },
+
   render: function() {
     if (this.model.get('open')) {
       this.$el.show();
     } else {
       this.$el.hide();
     }
+  },
+
+  toggle: function(event) {
+    event.preventDefault();
+    this.model.toggle();
   }
 });
 
