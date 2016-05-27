@@ -6,6 +6,7 @@ var App = Backbone.Model.extend({
     this.setUpPopups();
     this.setUpBars();
     this.setUpAccordions();
+    this.setUpModeToggles();
     this.showHomeScreen();
   },
 
@@ -70,6 +71,13 @@ var App = Backbone.Model.extend({
     });
   },
 
+  setUpModeToggles: function() {
+    var modeToggleEls = $('[data-mode-toggle]');
+    _.each(modeToggleEls, function(modeToggle) {
+      new ModeToggle({ el: modeToggle, model: this })
+    }, this);
+  },
+
   showHomeScreen: function() {
     var homeScreen = this.findScreen('home');
     homeScreen.show();
@@ -102,6 +110,15 @@ var App = Backbone.Model.extend({
   closeBar: function() {
     this.unset('bar');
     this.updateURL();
+  },
+
+  toggleMode: function(name) {
+    var currentMode = this.get('mode');
+    if (currentMode && currentMode === name) {
+      this.unset('mode');
+    } else {
+      this.set('mode', name);
+    }
   },
 
   updateURL: function(path) {
