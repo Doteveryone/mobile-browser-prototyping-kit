@@ -121,7 +121,7 @@ To mark a container as an accordion, use the `data-accordion` attribute:
 
 To add a button which toggles the accordion being shown / hidden, add a `data-accordion-button` attribute:
 
-```
+```html
 <a href="#" data-accordion-button="address">Address</a>
 ```
 
@@ -135,7 +135,7 @@ You might want to toggle a mode, which changes the appearance of certain element
 
 You can toggle modes on and off using a switch:
 
-```
+```html
 <a href="#" data-mode-toggle="edit">Make changes</a>
 ```
 
