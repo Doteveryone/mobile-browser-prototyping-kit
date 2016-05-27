@@ -111,7 +111,7 @@ Accordions are useful for hiding extra content which you don’t want to display
 
 To mark a container as an accordion, use the `data-accordion` attribute:
 
-```
+```html
 <p data-accordion="address">
   77 Trinity Crescent
   <br>WHISTON
@@ -128,6 +128,18 @@ To add a button which toggles the accordion being shown / hidden, add a `data-ac
 This button will open the accordion with the same name (in this case “address”).
 
 Both button and the accordion itself can be marked up using any HTML tags you think are suitable.
+
+### Modes
+
+You might want to toggle a mode, which changes the appearance of certain elements. Modes change a class on every screen. You can use that class to change how certain elements are displayed when the mode is active.
+
+You can toggle modes on and off using a switch:
+
+```
+<a href="#" data-mode-toggle="edit">Make changes</a>
+```
+
+Clicking this will add a class `mode-edit` to the screen, and clicking it again will remove it. It’s up to you to use CSS to respond to the mode class being added and removed.
 
 ### Popups
 
