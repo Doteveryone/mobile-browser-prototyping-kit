@@ -55,6 +55,7 @@ var Accordion = Backbone.Model.extend({
 var AccordionView = Backbone.View.extend({
   initialize: function() {
     this.listenTo(this.model, 'change', this.render);
+    this.checkIfOpen();
   },
 
   events: {
@@ -72,6 +73,12 @@ var AccordionView = Backbone.View.extend({
   toggle: function(event) {
     event.preventDefault();
     this.model.toggle();
+  },
+
+  checkIfOpen: function() {
+    if (this.el.hasAttribute('data-accordion-is-open')) {
+      this.model.open();
+    }
   }
 });
 
