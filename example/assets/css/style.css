@@ -9,3 +9,15 @@ body {
 .mode-edit a[data-mode-toggle] {
   color: inherit;
 }
+
+.label-less {
+  display: none;
+}
+
+.more .label-less {
+  display: inline;
+}
+
+.more .label-more {
+  display: none;
+}
