@@ -129,6 +129,23 @@ This button will open the accordion with the same name (in this case “address�
 
 Both button and the accordion itself can be marked up using any HTML tags you think are suitable.
 
+### More buttons
+
+Sometimes you might want to reveal some information only when the viewer directly asks for it. To do that, you can use the `more` feature.
+
+Use the `data-more` attribute to mark up the content initially hidden:
+
+```html
+<p data-more="extra">This is a paragraph which provides some additional information.</p>
+```
+
+To mark up the button use the `data-more-button` attribute, like so:
+
+```html
+<a href="#" data-more-button="extra">Toggle</a>
+```
+Clicking on this button will toggle te visibility of the alement marked up with `data-more="extra"`. You an use any element you want, it doesn’t have to be an `a`.
+
 ### Modes
 
 You might want to toggle a mode, which changes the appearance of certain elements. Modes change a class on every screen. You can use that class to change how certain elements are displayed when the mode is active.

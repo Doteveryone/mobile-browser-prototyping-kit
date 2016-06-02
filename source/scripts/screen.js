@@ -15,12 +15,13 @@ var Screen = Backbone.Model.extend({
 
   close: function() {
     this.app.close();
-  }
+  },
 });
 
 var ScreenView = Backbone.View.extend({
   initialize: function() {
     this.listenTo(this.model, 'change', this.render);
+    this.listenTo(this.model.app, 'change:scrollToTop', this.scrollToTop);
     this.listenTo(this.model.app, 'change:mode', this.respondToMode);
     this.render();
   },
@@ -75,6 +76,10 @@ var ScreenView = Backbone.View.extend({
     } else {
       this.el.className = this.el.className.replace(/\bmode-.+?\b/g, '');
     }
+  },
+
+  scrollToTop: function() {
+    this.$el.scrollTop(0);
   },
 
   render: function() {

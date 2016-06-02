@@ -89,6 +89,7 @@ p {
   background:#FFF;
   padding: 20px;
   display: none;
+  overflow-y: auto;
 }
 
 [data-screen] li {
@@ -142,6 +143,11 @@ p {
   margin-bottom: 0;
   line-height: 1.4;
 }
+
+[data-more] {
+  display: none;
+}
+
 
 [data-accordion] {
   display: none;

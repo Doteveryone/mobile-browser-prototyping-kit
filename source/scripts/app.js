@@ -7,6 +7,7 @@ var App = Backbone.Model.extend({
     this.setUpBars();
     this.setUpAccordions();
     this.setUpModeToggles();
+    this.setUpMoreButtons();
     this.showHomeScreen();
   },
 
@@ -78,6 +79,17 @@ var App = Backbone.Model.extend({
     }, this);
   },
 
+  setUpMoreButtons: function() {
+    var moreContentEls = $('[data-more]');
+    _.each(moreContentEls, function(moreContentEl) {
+      var name = moreContentEl.dataset.more;
+      var moreButtonEl = $('[data-more-button=' + name + ']');
+      var more = new More(this);
+      new MoreContent({ model: more, el: moreContentEl });
+      new MoreButton({ model: more, el: moreButtonEl });
+    }, this);
+  },
+
   showHomeScreen: function() {
     var homeScreen = this.findScreen('home');
     homeScreen.show();
@@ -88,6 +100,10 @@ var App = Backbone.Model.extend({
     return _.find(this.screens, function(screen) {
       return screen.name === name;
     });
+  },
+
+  scrollToTop: function() {
+    this.set('scrollToTop', Date.now);
   },
 
   openPopup: function(popup) {
