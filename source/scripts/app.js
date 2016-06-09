@@ -8,6 +8,7 @@ var App = Backbone.Model.extend({
     this.setUpAccordions();
     this.setUpModeToggles();
     this.setUpMoreButtons();
+    this.setUpTabs();
     this.showHomeScreen();
   },
 
@@ -87,6 +88,27 @@ var App = Backbone.Model.extend({
       var more = new More(this);
       new MoreContent({ model: more, el: moreContentEl });
       new MoreButton({ model: more, el: moreButtonEl });
+    }, this);
+  },
+
+  setUpTabs: function() {
+    var tabSetEls = $('[data-tab-set]');
+
+    _.each(tabSetEls, function(tabSetEl) {
+
+      var tabSet = new TabSet();
+      var tabEls = $(tabSetEl).find('[data-tab]');
+
+      _.each(tabEls, function(tabEl) {
+        var name = tabEl.dataset.tab;
+        var content = $('[data-tab-content='+name+']')[0];
+
+        new Tab({ model: tabSet, el: tabEl });
+        new TabContent({ model: tabSet, el: content });
+
+      }, this);
+
+      tabSet.open(tabEls[0].dataset.tab);
     }, this);
   },
 
