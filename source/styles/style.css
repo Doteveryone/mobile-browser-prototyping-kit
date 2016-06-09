@@ -153,6 +153,28 @@ p {
   display: none;
 }
 
+[data-tab-set] {
+  width: 100%;
+  text-align: center;
+  display: table;
+  border-bottom: 3px solid #0072C6;
+  border-collapse: collapse;
+}
+
+[data-tab] {
+  width: 50%;
+  font-size: 24px;
+  display: table-cell;
+  padding: 0.3em 0.5em;
+  text-decoration: none;
+}
+
+[data-tab].open {
+  background: #0072C6;
+  color: white;
+  text-decoration: none;
+}
+
 .grid li {
   width: 50%;
   float: left;
