@@ -244,12 +244,24 @@ var BarView = Backbone.View.extend({
 var TabSet = Backbone.Model.extend({
   open: function(tab) {
     this.set('open', tab);
+  },
+
+  addTab: function(tab) {
+    if (this.tabs) {
+      this.tabs.push(tab);
+      this.open(this.tabs[0]);
+    } else {
+      this.tabs = []
+    }
   }
 });
 
 var Tab = Backbone.View.extend({
   initialize: function() {
     this.name = this.$el.data('tab');
+    if (this.$el.data('tab-open') == '') {
+      this.model.open(this.name);
+    }
     this.listenTo(this.model, 'change', this.render);
     this.render();
   },
@@ -517,12 +529,12 @@ var App = Backbone.Model.extend({
         var name = tabEl.dataset.tab;
         var content = $('[data-tab-content='+name+']')[0];
 
+        tabSet.addTab(name);
         new Tab({ model: tabSet, el: tabEl });
         new TabContent({ model: tabSet, el: content });
 
       }, this);
 
-      tabSet.open(tabEls[0].dataset.tab);
     }, this);
   },
 
