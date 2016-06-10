@@ -129,6 +129,36 @@ This button will open the accordion with the same name (in this case â€œaddressâ
 
 Both button and the accordion itself can be marked up using any HTML tags you think are suitable.
 
+### Tabs
+
+Tabbed interfaces have three components: a tab set, a tab, and tab content.
+
+Tab sets group tabs together, to make sure that you might have multiple sets of tabs on the same screen, working independently. Tab sets look like this:
+
+```html
+<div data-tab-set>
+  <a href="#" data-tab="profile">Profile</a>
+  <a href="#" data-tab="summary">Summary</a>
+</div>
+```
+
+Clicking the element marked with the `data-tab="profile"` will open up an element marked up with `data-tab-content="profile"`, eg.:
+
+```html
+<div data-tab-content="profile">
+  ...
+</div>
+```
+
+By default the first tab from the left is open when the page loads. If you want to soecify which one should be open, you can use the `data-tab-open` atttribute, like this:
+
+```html
+<div data-tab-set>
+  <a href="#" data-tab="profile">Profile</a>
+  <a href="#" data-tab="summary" data-tab-open>Summary</a>
+</div>
+```
+
 ### More buttons
 
 Sometimes you might want to reveal some information only when the viewer directly asks for it. To do that, you can use the `more` feature.
