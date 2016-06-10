@@ -103,12 +103,12 @@ var App = Backbone.Model.extend({
         var name = tabEl.dataset.tab;
         var content = $('[data-tab-content='+name+']')[0];
 
+        tabSet.addTab(name);
         new Tab({ model: tabSet, el: tabEl });
         new TabContent({ model: tabSet, el: content });
 
       }, this);
 
-      tabSet.open(tabEls[0].dataset.tab);
     }, this);
   },
 

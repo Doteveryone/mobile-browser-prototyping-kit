@@ -1,12 +1,24 @@
 var TabSet = Backbone.Model.extend({
   open: function(tab) {
     this.set('open', tab);
+  },
+
+  addTab: function(tab) {
+    if (this.tabs) {
+      this.tabs.push(tab);
+      this.open(this.tabs[0]);
+    } else {
+      this.tabs = []
+    }
   }
 });
 
 var Tab = Backbone.View.extend({
   initialize: function() {
     this.name = this.$el.data('tab');
+    if (this.$el.data('tab-open') == '') {
+      this.model.open(this.name);
+    }
     this.listenTo(this.model, 'change', this.render);
     this.render();
   },
